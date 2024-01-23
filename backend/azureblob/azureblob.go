@@ -2281,7 +2281,8 @@ func (o *Object) prepareUpload(ctx context.Context, src fs.ObjectInfo, options [
 
 	// Create the HTTP headers for the upload
 	ui.httpHeaders = blob.HTTPHeaders{
-		BlobContentType: pString(fs.MimeType(ctx, src)),
+		BlobContentType:     pString(fs.MimeType(ctx, src)),
+		BlobContentEncoding: pString(fs.ContentEncoding(ctx, src)),
 	}
 
 	// Compute the Content-MD5 of the file. As we stream all uploads it

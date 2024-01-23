@@ -151,6 +151,13 @@ type MimeTyper interface {
 	MimeType(ctx context.Context) string
 }
 
+// ContentEncodinger is an optional interface for Object
+type ContentEncodinger interface {
+	// ContentEncoding returns the content encoding of the Object if
+	// known, or "" if not
+	ContentEncoding(ctx context.Context) string
+}
+
 // IDer is an optional interface for Object
 type IDer interface {
 	// ID returns the ID of the Object if known, or "" if not
